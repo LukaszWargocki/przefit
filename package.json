@@ -1,0 +1,19 @@
+{
+  "name": "przefit-przepisy",
+  "version": "1.0.0",
+  "description": "web platform for sharing recipes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukaszWargocki/przefit.git"
+  },
+  "author": "Łukasz Wargocki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukaszWargocki/przefit/issues"
+  },
+  "homepage": "https://github.com/LukaszWargocki/przefit#readme"
+}
