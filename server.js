@@ -1,5 +1,4 @@
-// dependencies
-// external
+// external dependencies
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -8,14 +7,15 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const logger = require("morgan");
 const flash = require("express-flash");
+const methodOverride = require("method-override");
 
-// internal
+// internal dependencies
 const connectDB = require("./config/database");
-// const mainRoutes = ;
-// const recipeRoutes = ;
-// const commentRountes = ;
+const mainRoutes = require("./routes/main");
+const recipeRoutes = require("./routes/recipes");
+const commentRoutes = require("./routes/comments");
 
-// setup .env path
+// dotenv configuration path
 require("dotenv").config({ path: "./config/.env" });
 
 // config passport
@@ -24,4 +24,42 @@ require("./config/passport")(passport);
 // connect to database
 connectDB();
 
-//
+// select EJS as view generation engine
+app.set("view engine", "ejs");
+
+// Body parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// chose logging mode
+app.use(logger("dev"));
+
+// use forms for put/delete requests
+app.use(methodOverride("_method"));
+
+// setup session storage in MongoDB
+app.use(
+  session({
+    secret: "kingpin penguin",
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+
+// use Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// use flash for messaging errors, infos...
+app.use(flash());
+
+// setup routes
+app.use("/", mainRoutes);
+app.use("recipe", recipeRoutes);
+app.use("/comment", commentRoutes);
+
+// run the server
+app.listen(process.env.PORT, () => {
+  console.log(`Server listening on port ${process.env.PORT}`)
+});
