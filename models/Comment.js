@@ -5,7 +5,7 @@ const CommentSchema = new mongoose.Schema({
   likes: { type: Number, required: true,},
   recipe: { 
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Recipe",
+    ref: "Post",
   },
   createdOn: {
     type: Date,

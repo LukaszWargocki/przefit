@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const RecipeSchema = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
   recipeName: { type: String, required: true },
   ingredients: { type: [String], required: true },
   restrictedFor: [String],
@@ -20,4 +20,4 @@ const RecipeSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Recipe", RecipeSchema);
+module.exports = mongoose.model("Post", PostSchema);

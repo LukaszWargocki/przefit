@@ -12,7 +12,7 @@ const methodOverride = require("method-override");
 // internal dependencies
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const recipeRoutes = require("./routes/recipes");
+const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
 
 // dotenv configuration path
@@ -56,7 +56,7 @@ app.use(flash());
 
 // setup routes
 app.use("/", mainRoutes);
-app.use("recipe", recipeRoutes);
+app.use("post", postRoutes);
 app.use("/comment", commentRoutes);
 
 // run the server
