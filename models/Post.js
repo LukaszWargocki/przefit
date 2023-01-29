@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
-  recipeName: { type: String, required: true },
+  title: { type: String, required: true },
   ingredients: { type: [String], required: true },
   restrictedFor: [String],
   tags: [String],
@@ -9,7 +9,7 @@ const PostSchema = new mongoose.Schema({
   imageLink: { type: String, required: true },
   cloudinaryId: { type: String, required: true },
   prepTime: { type: Number, required: true },
-  cookTime: { type: Number, required: true },
+  cookingTime: { type: Number, required: true },
   likes: { type: Number, required: true },
   createdOn: { type: Date, default: Date.now },
   allergies: [String],
