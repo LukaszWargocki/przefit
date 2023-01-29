@@ -4,7 +4,7 @@ const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 
 module.exports = {
-  // get users posts from DB and render profile page
+  // GET request for user's profile
   getProfile: async (req, res) => {
     try {
       // get user posts from DB
@@ -15,7 +15,7 @@ module.exports = {
       console.log(err);
     }
   },
-  // get recent posts from DB and render feed page
+  // GET request for feed page
   getFeed: async (req, res) => {
     try {
       // TODO: filter feed according to diet preferences
@@ -27,7 +27,7 @@ module.exports = {
       console.log(err);
     }
   },
-  // get specific post from DB and render post page
+  // GET request for specific post page
   getPost: async (req, res) => {
     try {
       // get specific post from DB
@@ -40,6 +40,7 @@ module.exports = {
       console.log(err);
     }
   },
+  // POST request for post page
   createPost: async (req, res) => {
     try {
       // upload an image to cloudinary
@@ -67,6 +68,7 @@ module.exports = {
       console.log(err);
     }
   },
+  // PUT request for likes
   likePost: async (req, res) => {
     try {
       // find post in DB and increment ["likes"] property by 1
@@ -81,7 +83,7 @@ module.exports = {
       console.log(err);
     }
   },
-  // delete the post
+  // DELETE request for post
   deletePost: async (req, res) => {
     try {
       // find the post in DB by it's ID
