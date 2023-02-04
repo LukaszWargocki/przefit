@@ -1,0 +1,16 @@
+<%- include('partials/header') -%>
+  <div class="container">
+    <div class="">
+      <ul class="">
+        <% for (let i=0; i<posts.length; i++) { %>
+          <li class="">
+            <a href="/post<%= posts[i]._id%>">
+              <img class="" src="<$= posts[i].imageLink%>" alt="<$= posts[i].title%>">
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+<%- include('partials/footer') -%>
+
