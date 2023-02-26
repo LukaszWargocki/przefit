@@ -8,7 +8,7 @@ const MongoStore = require("connect-mongo")(session);
 const logger = require("morgan");
 const flash = require("express-flash");
 const methodOverride = require("method-override");
-
+const path = require("path");
 // internal dependencies
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
@@ -50,6 +50,9 @@ app.use(
 // use Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// set up static folder with built in middleware
+app.use(express.static(path.join(__dirname, 'public')));
 
 // use flash for messaging errors, infos...
 app.use(flash());
