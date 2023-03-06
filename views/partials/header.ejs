@@ -25,10 +25,50 @@
   </head>
   <body>
     <header>
-      <div>
-        <h1><a href="/profile">Przefit-Przepisy</a></h1>
-        <span class="bg-lime-600">Zdrowotnie Świadome Przepisy</span>
-      </div>
+      <!-- navbar -->
+      <nav class="relative container mx-auto p-6">
+        <!-- flex container -->
+        <div class="flex items-center justify-between">
+          <!-- logo -->
+          <div class="pt-2">
+            <img src="./img/logo.svg" alt="company logo">
+          </div>
+          <!-- menu items -->
+          <div class="hidden md:flex space-x-6 uppercase">
+            <a href="#" class="hover:text-slate-600">Dinners</a>
+            <a href="#" class="hover:text-slate-600">Vegan</a>
+            <a href="#" class="hover:text-slate-600">Vegetarian</a>
+            <a href="#" class="hover:text-slate-600">Fitness</a>
+            <a href="#" class="hover:text-slate-600">About Us</a>
+            <a href="#" class="hover:text-slate-600">Community</a>
+          </div>
+          <!-- login signup buttons -->
+          <div class="flex divide-x divide-amber-600">
+            <a href="signup" class="hidden w-1/2 p-3 px-6 pt-2 text-white bg-amber-400 rounded-l-full baseline hover:bg-amber-300 md:block">
+              Signup
+            </a>
+            <a href="login" class="hidden w-1/2 p-3 px-6 pt-2 text-white bg-amber-400 rounded-r-full baseline hover:bg-amber-300 md:block">
+              Login
+            </a>
+          </div>
+          <!-- hamburger icon -->
+          <button class="open block hamburger md:hidden focus:outline-none" id="menu-btn">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+          </button>
+        </div>
+        <!-- mobile menu -->
+        <div class="md:hidden">
+          <div id="menu" class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+            <a href="#">Pricing</a>
+            <a href="#">Product</a>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Community</a>
+          </div>
+        </div>
+      </nav>
     </header>
   </body>
 </html>

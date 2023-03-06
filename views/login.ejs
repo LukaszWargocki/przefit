@@ -1,9 +1,12 @@
-<$- include('/partials/header') -%>
+<%- include('partials/header') -%>
 <main class="container">
   <div class="">
-    <section class="">
-      
+    <section class="col-6 mt-4">
+        <% if (locals.messages.errors) { %> <% messages.errors.forEach(item => { %>
+          <div class="bg-red-700"></div>
+        })}
+      </div>
     </section>
   </div>
 </main>
-<$- include('/partials/footer') -%>
+<%- include('partials/footer') -%>
